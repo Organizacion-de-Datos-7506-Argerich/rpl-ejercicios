@@ -1,0 +1,6 @@
+language: python
+python:
+  - 3.6.9
+env:
+  - IS_TRAVIS="si uacho"
+script: pytest

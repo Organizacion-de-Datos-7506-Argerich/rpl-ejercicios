@@ -1,6 +1,6 @@
 from typing import Tuple, Dict
 
-from utils import *
+from .utils import *
 
 """
 Se recibe un dataframe con columnas: 
