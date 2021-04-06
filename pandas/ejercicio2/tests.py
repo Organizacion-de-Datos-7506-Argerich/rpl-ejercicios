@@ -301,8 +301,8 @@ class TestMethods(unittest.TestCase):
 
         top5 = top5_cuentas_mas_transacciones(df)
 
-        self.assertEqual(set(top5[:3]), {999,4,60})
-        self.assertEqual(set(top5[3:]), {5,65})
+        self.assertEqual(set(top5[:3]), {999, 4, 60})
+        self.assertEqual(set(top5[3:]), {5, 65})
 
     @timeout_decorator.timeout(5)
     def test_top5_cuentas_involucradas_en_monto_mas_alto(self):
@@ -330,7 +330,7 @@ class TestMethods(unittest.TestCase):
 
         top5 = top5_cuentas_monto_mas_alto_involucrado(df)
 
-        self.assertEqual(set(top5[:2]), {60,999})
+        self.assertEqual(set(top5[:2]), {60, 999})
         self.assertEqual(top5[2], 65)
         self.assertEqual(top5[3], 5)
         self.assertEqual(top5[4], 4)
@@ -360,7 +360,7 @@ class TestMethods(unittest.TestCase):
                                    'fecha', 'hora', 'monto'])
 
         top5 = top5_cuentas_mas_transacciones_para_trans_mayor(df)
-        self.assertEqual(set(top5[:2]),{65,999})
-        self.assertEqual(top5[2],60)
-        self.assertEqual(top5[3],5)
-        self.assertTrue(top5[4] in {4,0})
+        self.assertEqual(set(top5[:2]), {65, 999})
+        self.assertEqual(top5[2], 60)
+        self.assertEqual(top5[3], 5)
+        self.assertTrue(top5[4] in {4, 0})

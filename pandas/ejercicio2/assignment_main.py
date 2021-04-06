@@ -1,4 +1,5 @@
-from typing import Tuple, Dict, List
+from typing import List
+
 from utils import *
 
 """
@@ -22,6 +23,7 @@ def transacciones_tienen_tipo(df) -> bool:
     """
     pass
 
+
 def transferencias_tienen_cuenta_destino_y_origen(df) -> bool:
     """
     Indica si todas las transacciones de tipo 'Transferencia'
@@ -31,6 +33,7 @@ def transferencias_tienen_cuenta_destino_y_origen(df) -> bool:
     :return: True si todas las transferencias tienen destino y origen
     """
     pass
+
 
 def transf_deposito_extraccion_monto_positivo(df) -> bool:
     """
@@ -42,6 +45,7 @@ def transf_deposito_extraccion_monto_positivo(df) -> bool:
     """
     pass
 
+
 def top10_mayor_monto(df) -> List[int]:
     """
     Indica los ids de las 10 transacciones de mayor monto
@@ -52,6 +56,7 @@ def top10_mayor_monto(df) -> List[int]:
     """
     pass
 
+
 def transaccion_mayor_monto_promedio(df) -> str:
     """
     Devuelve el tipo de transaccion con mayor monto promedio
@@ -60,6 +65,7 @@ def transaccion_mayor_monto_promedio(df) -> str:
     :return: Tipo de transacción con mayor monto promedio
     """
     pass
+
 
 def top5_cuentas_mas_transacciones(df) -> List[int]:
     """
@@ -71,6 +77,7 @@ def top5_cuentas_mas_transacciones(df) -> List[int]:
     """
     pass
 
+
 def top5_cuentas_monto_mas_alto_involucrado(df) -> List[int]:
     """
     Top 5 de cuentas con monto más alto involucrado en alguna transacción
@@ -80,6 +87,7 @@ def top5_cuentas_monto_mas_alto_involucrado(df) -> List[int]:
     :return: Top 5 de cuentas con monto más alto en alguna transaccion
     """
     pass
+
 
 def top5_cuentas_mas_transacciones_para_trans_mayor(df) -> List[int]:
     """
