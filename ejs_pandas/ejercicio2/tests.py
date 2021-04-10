@@ -65,8 +65,8 @@ class TestMethods(unittest.TestCase):
             (2, 'Transferencia', 6, 6, '03-01-2021', '00:00', 1),
             (3, 'Transferencia', 9, 10, '03-01-2021', '00:00', 1),
             (4, 'Transferencia', 2, 20, '03-01-2021', '00:00', 1),
-            (5, 'Prestamo', None, 30, '03-01-2021', '00:00', 1),
-            (6, 'Prestamo', None, 50, '03-01-2021', '00:00', 1),
+            (5, 'Prestamo', 4, 30, '03-01-2021', '00:00', 1),
+            (6, 'Prestamo', 5, 50, '03-01-2021', '00:00', 1),
             (7, 'Varios', 999, 60, '03-01-2021', '00:00', 1)
         ]
 
@@ -159,7 +159,7 @@ class TestMethods(unittest.TestCase):
             (3, 'Transferencia', 4, None, '03-01-2021', '00:00', 1),
             (4, 'Transferencia', 4, 20, '03-01-2021', '00:00', 1),
             (5, 'Debito', 5, 30, '03-01-2021', '00:00', 999),
-            (6, 'Debito', 65, 50, '03-01-2021', '00:00', -5),
+            (6, 'Deposito', 65, 50, '03-01-2021', '00:00', -5),
             (7, 'Extraccion', 999, 60, '03-01-2021', '00:00', 1)
         ]
 
@@ -176,7 +176,7 @@ class TestMethods(unittest.TestCase):
             (3, 'Transferencia', 4, None, '03-01-2021', '00:00', 1),
             (4, 'Transferencia', 4, 20, '03-01-2021', '00:00', 1),
             (5, 'Debito', 5, 30, '03-01-2021', '00:00', 999),
-            (6, 'Debito', 65, 50, '03-01-2021', '00:00', 777),
+            (6, 'Deposito', 65, 50, '03-01-2021', '00:00', 777),
             (7, 'Extraccion', 999, 60, '03-01-2021', '00:00', -88)
         ]
 
@@ -193,7 +193,7 @@ class TestMethods(unittest.TestCase):
             (3, 'Transferencia', 4, None, '03-01-2021', '00:00', 1),
             (4, 'Transferencia', 4, 20, '03-01-2021', '00:00', 1),
             (5, 'Debito', 5, 30, '03-01-2021', '00:00', 999),
-            (6, 'Debito', 65, 50, '03-01-2021', '00:00', 1),
+            (6, 'Deposito', 65, 50, '03-01-2021', '00:00', 1),
             (7, 'Extraccion', 999, 60, '03-01-2021', '00:00', 1)
         ]
 
@@ -249,8 +249,8 @@ class TestMethods(unittest.TestCase):
 
         top10 = top10_mayor_monto(df)
 
-        self.assertTrue(top10(df) == [8, 13, 12, 4, 14, 10, 2, 11, 1, 3] or
-                        top10(df) == [8, 13, 12, 4, 14, 10, 2, 11, 1, 9])
+        self.assertTrue(top10 == [8, 13, 12, 4, 14, 10, 2, 11, 1, 3] or
+                        top10 == [8, 13, 12, 4, 14, 10, 2, 11, 1, 9])
 
     @timeout_decorator.timeout(5)
     def test_tipo_mayor_monto_promedio(self):
@@ -364,6 +364,5 @@ class TestMethods(unittest.TestCase):
 
         top5 = top5_cuentas_mas_transacciones_para_trans_mayor(df)
         self.assertEqual(set(top5[:2]), {65, 999})
-        self.assertEqual(top5[2], 60)
-        self.assertEqual(top5[3], 5)
+        self.assertEqual(set(top5[2:4]), {5, 60})
         self.assertTrue(top5[4] in {4, 0})

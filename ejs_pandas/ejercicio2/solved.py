@@ -1,6 +1,5 @@
 from typing import List
-
-from .utils import *
+import pandas as pd
 
 """
 Se recibe un dataframe con columnas: 
@@ -21,7 +20,7 @@ def transacciones_tienen_tipo(df) -> bool:
     :param df: Dataframe
     :return: True si todas las transacciones tienen tipo
     """
-    pass
+    return df['tipo_de_transacción'].isnull().sum() == 0
 
 
 def transferencias_tienen_cuenta_destino_y_origen(df) -> bool:
@@ -32,7 +31,8 @@ def transferencias_tienen_cuenta_destino_y_origen(df) -> bool:
     :param df: Dataframe
     :return: True si todas las transferencias tienen destino y origen
     """
-    pass
+    return df['cuenta_origen'].isnull().sum() + \
+           df['cuenta_destino'].isnull().sum() == 0
 
 
 def transf_deposito_extraccion_monto_positivo(df) -> bool:
@@ -43,7 +43,8 @@ def transf_deposito_extraccion_monto_positivo(df) -> bool:
     :param df: Dataframe
     :return: True si se cumple la condicion pedida
     """
-    pass
+    df = df[df['tipo_de_transacción'].isin(['Transferencia', 'Deposito', 'Extraccion'])]
+    return (df.monto <= 0).sum() == 0
 
 
 def top10_mayor_monto(df) -> List[int]:
@@ -54,7 +55,7 @@ def top10_mayor_monto(df) -> List[int]:
     :param df: Dataframe
     :return: Lista de ints con los ids de las 10 transacciones de mayor monto
     """
-    pass
+    return df.sort_values('monto', ascending=False)['nro_de_transacción'].tolist()[:10]
 
 
 def transaccion_mayor_monto_promedio(df) -> str:
@@ -64,7 +65,7 @@ def transaccion_mayor_monto_promedio(df) -> str:
     :param df: Dataframe
     :return: Tipo de transacción con mayor monto promedio
     """
-    pass
+    return df.groupby('tipo_de_transacción').agg({'monto': 'mean'}).idxmax()['monto']
 
 
 def top5_cuentas_mas_transacciones(df) -> List[int]:
@@ -75,7 +76,11 @@ def top5_cuentas_mas_transacciones(df) -> List[int]:
     :param df: Dataframe
     :return: Top 5 de cuentas con más transacciones
     """
-    pass
+    como_origen = df.groupby('cuenta_origen').agg({'nro_de_transacción': 'count'})
+    como_destino = df.groupby('cuenta_destino').agg({'nro_de_transacción': 'count'})
+    suma = como_origen.add(como_destino, fill_value=0). \
+        sort_values('nro_de_transacción', ascending=False)
+    return suma.index.tolist()[:5]
 
 
 def top5_cuentas_monto_mas_alto_involucrado(df) -> List[int]:
@@ -86,7 +91,15 @@ def top5_cuentas_monto_mas_alto_involucrado(df) -> List[int]:
     :param df: Dataframe
     :return: Top 5 de cuentas con monto más alto en alguna transaccion
     """
-    pass
+    como_origen = df.sort_values('monto', ascending=False). \
+        drop_duplicates('cuenta_origen', keep='first'). \
+        set_index('cuenta_origen')['monto']
+    como_destino = df.sort_values('monto', ascending=False). \
+        drop_duplicates('cuenta_destino', keep='first'). \
+        set_index('cuenta_destino')['monto']
+    max_df = pd.concat([como_origen, como_destino], axis=1).fillna(0)
+    max_df['max'] = max_df.max(axis=1)
+    return max_df.sort_values('max', ascending=False).index.tolist()[:5]
 
 
 def top5_cuentas_mas_transacciones_para_trans_mayor(df) -> List[int]:
@@ -98,4 +111,4 @@ def top5_cuentas_mas_transacciones_para_trans_mayor(df) -> List[int]:
     :param df: Dataframe
     :return: Top 5
     """
-    pass
+    return top5_cuentas_monto_mas_alto_involucrado(df[df['tipo_de_transacción']==transaccion_mayor_monto_promedio(df)])
