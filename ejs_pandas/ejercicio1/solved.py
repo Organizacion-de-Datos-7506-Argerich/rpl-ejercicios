@@ -28,8 +28,8 @@ def nota_max_min_2019(df) -> Tuple[int, int]:
     :param df: Dataframe con columnas: padron, materia, nota, fecha
     :return: nota más alta y más baja de 2019
     """
-    max_nota = df[df.fecha.map(lambda x: x[-4:]=='2019')]['nota'].max()
-    min_nota = df[df.fecha.map(lambda x: x[-4:]=='2019')]['nota'].min()
+    max_nota = df[df.fecha.map(lambda x: x[-4:] == '2019')]['nota'].max()
+    min_nota = df[df.fecha.map(lambda x: x[-4:] == '2019')]['nota'].min()
     return max_nota, min_nota
 
 

@@ -1,4 +1,5 @@
 from typing import List
+
 import pandas as pd
 
 """
@@ -111,4 +112,5 @@ def top5_cuentas_mas_transacciones_para_trans_mayor(df) -> List[int]:
     :param df: Dataframe
     :return: Top 5
     """
-    return top5_cuentas_monto_mas_alto_involucrado(df[df['tipo_de_transacción']==transaccion_mayor_monto_promedio(df)])
+    return top5_cuentas_monto_mas_alto_involucrado(
+        df[df['tipo_de_transacción'] == transaccion_mayor_monto_promedio(df)])

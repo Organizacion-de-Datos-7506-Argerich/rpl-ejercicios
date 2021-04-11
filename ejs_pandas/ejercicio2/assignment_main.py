@@ -1,7 +1,4 @@
 from typing import List
-import pandas as pd
-
-from .utils import *
 
 """
 Se recibe un dataframe con columnas: 

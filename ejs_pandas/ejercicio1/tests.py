@@ -1,10 +1,10 @@
+import os
 import unittest
 
-import pandas as pd
 import timeout_decorator
+
 from .assignment_main import *
 
-import os
 if os.getenv('IS_TRAVIS'):
     from .solved import *
 
