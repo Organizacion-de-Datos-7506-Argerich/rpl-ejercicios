@@ -6,8 +6,10 @@ import pandas as pd
 
 import timeout_decorator
 
+from assignment_main import *
+
 if os.getenv('IS_TRAVIS'):
-    from .solved import *
+    from solved import *
 
 
 class TestMethods(unittest.TestCase):
