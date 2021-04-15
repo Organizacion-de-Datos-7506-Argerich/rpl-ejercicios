@@ -368,3 +368,4 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(set(top5[:2]), {65, 999})
         self.assertEqual(set(top5[2:4]), {5, 60})
         self.assertTrue(top5[4] in {4, 0})
+        # Workaround para que RPL no falle por bug desconocido

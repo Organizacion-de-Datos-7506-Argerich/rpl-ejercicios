@@ -148,3 +148,4 @@ class TestMethods(unittest.TestCase):
         student_df.index = result_df.index
 
         self.assertTrue(result_df.equals(student_df))
+        # Workaround para que RPL no falle por bug desconocido

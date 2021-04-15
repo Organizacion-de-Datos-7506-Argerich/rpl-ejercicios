@@ -183,3 +183,4 @@ class TestMethods(unittest.TestCase):
         student_df = self.normalize_df_for_tests(student_df)
 
         self.assertTrue(result_df.equals(student_df))
+        # Workaround para que RPL no falle por bug desconocido

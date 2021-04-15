@@ -129,3 +129,4 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(nota_promedio_por_padron(notas_df),
                          notas_df.groupby('padron').agg({'nota': 'mean'}).to_dict())
+        # Workaround para que RPL no falle por bug desconocido
