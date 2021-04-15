@@ -34,6 +34,7 @@ class TestMethods(unittest.TestCase):
             df = df.sort_values(orderer_column)
         return df.sort_index(axis=1)
 
+    @timeout_decorator.timeout(5)
     def test_consigna1(self):
         df_data = [
             (1, 1, 1, datetime.now().isoformat()),
@@ -69,6 +70,7 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(consigna1(ebooks, goodreads), [5, 4, 2, 3, 1])
 
+    @timeout_decorator.timeout(5)
     def test_consigna2(self):
         df_data = [
             (1, 1, 1, datetime.now().isoformat()),
