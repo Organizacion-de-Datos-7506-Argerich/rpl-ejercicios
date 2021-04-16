@@ -174,3 +174,4 @@ class TestMethods(unittest.TestCase):
                                     columns=['id_caso', 'respuesta'])
 
         self.assertEqual(consigna3(casos, batiseniales), '12')
+        # Workaround para bug de RPL
