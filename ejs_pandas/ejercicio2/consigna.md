@@ -6,8 +6,8 @@ Se tiene un registro de transacciones bancarias, de la forma (nro de transacció
 
 Se pide resolver en Pandas:
 * Validar que todas las transacciones cuenten con un tipo de transacción.
-* Validar que para las transacciones del tipo transferencia, exista siempre tanto cuenta origen como cuenta destino.
-* Verificar que todas las transacciones del tipo transferencia, depósito y extracción cuenten con montos distintos de cero.
+* Validar que para las transacciones del tipo 'Transferencia', exista siempre tanto cuenta origen como cuenta destino.
+* Verificar que todas las transacciones del tipo 'Transferencia', 'Deposito' y 'Extraccion' cuenten con montos distintos de cero.
 * Indicar cuáles fueron las 10 transacciones de mayor monto.
 * Indicar cuál es el tipo de transacción que registra mayor monto promedio.
 * Indicar cuáles son las 5 cuentas con mayor cantidad de transacciones.
