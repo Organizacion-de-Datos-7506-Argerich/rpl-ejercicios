@@ -1,3 +1,5 @@
+<span style="background:#FFCC99;padding:2px"> <b>Hint:</b> Probar usar la función .to_dict() para Series de Pandas para pasar de Serie de pandas a diccionario de Python.</span>
+
 # Ejercicio 1
 Dado el registro de notas de los alumnos de la forma (padrón, materia, nota, fecha). Se pide resolver utilizando Pandas:
 * Cuál es el promedio general de notas.

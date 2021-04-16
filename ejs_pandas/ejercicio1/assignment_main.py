@@ -49,7 +49,7 @@ def nota_promedio_por_materia(df) -> Dict[str, float]:
     Cuál es la nota promedio por materia
 
     :param df: Dataframe con columnas: padron, materia, nota, fecha
-    :return: un diccionario cuya clave es una materia y valor la nota promedio
+    :return: un diccionario cuya claves son las materias y valores su nota promedio
     """
     pass
 
@@ -59,6 +59,6 @@ def nota_promedio_por_padron(df) -> Dict[int, float]:
     Cuál es la nota promedio por padron
 
     :param df: Dataframe con columnas: padron, materia, nota, fecha
-    :return: un diccionario cuya clave es un padron y valor la nota promedio
+    :return: un diccionario cuyas claves son los padrones y valores sus nota promedio
     """
     pass

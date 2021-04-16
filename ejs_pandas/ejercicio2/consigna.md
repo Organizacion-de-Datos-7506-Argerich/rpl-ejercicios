@@ -1,3 +1,5 @@
+<span style="background:#FFCC99;padding:2px"> <b>Hint:</b> Probar usar la función .to_list() para series de pandas para pasar los valores de una Serie de Pandas a una lista de Python.</span>
+
 # Ejercicio 2
 
 Se tiene un registro de transacciones bancarias, de la forma (nro de transacción, tipo de transacción, cuenta origen, cuenta destino, fecha, hora, monto). 

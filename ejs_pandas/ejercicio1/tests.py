@@ -100,7 +100,7 @@ class TestMethods(unittest.TestCase):
                                          'nota', 'fecha'])
 
         self.assertEqual(nota_promedio_por_materia(notas_df),
-                         notas_df.groupby('materia').agg({'nota': 'mean'}).to_dict())
+                         notas_df.groupby('materia').agg({'nota': 'mean'}).to_dict()['nota'])
 
     @timeout_decorator.timeout(5)
     def test_nota_promedio_por_padron_simple(self):
@@ -128,5 +128,5 @@ class TestMethods(unittest.TestCase):
                                          'nota', 'fecha'])
 
         self.assertEqual(nota_promedio_por_padron(notas_df),
-                         notas_df.groupby('padron').agg({'nota': 'mean'}).to_dict())
+                         notas_df.groupby('padron').agg({'nota': 'mean'}).to_dict()['nota'])
         # Workaround para que RPL no falle por bug desconocido
