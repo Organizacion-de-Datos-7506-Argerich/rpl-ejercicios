@@ -68,8 +68,7 @@ def transaccion_mayor_monto_promedio(df) -> str:
 
 def top5_cuentas_mas_transacciones(df) -> List[int]:
     """
-    Top 5 de cuentas con más transacciones ordenado por cantidad
-    de transacciones descendente
+    Indicar cuáles son las 5 cuentas involucradas en la mayor cantidad de transacciones.
 
     :param df: Dataframe
     :return: Top 5 de cuentas con más transacciones

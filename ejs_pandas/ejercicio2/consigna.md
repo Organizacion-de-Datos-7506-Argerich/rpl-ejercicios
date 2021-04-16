@@ -10,6 +10,6 @@ Se pide resolver en Pandas:
 * Verificar que todas las transacciones del tipo 'Transferencia', 'Deposito' y 'Extraccion' cuenten con montos distintos de cero.
 * Indicar cuáles fueron las 10 transacciones de mayor monto.
 * Indicar cuál es el tipo de transacción que registra mayor monto promedio.
-* Indicar cuáles son las 5 cuentas con mayor cantidad de transacciones.
+* Indicar cuáles son las 5 cuentas involucradas en la mayor cantidad de transacciones.
 * Indicar cuáles son las 5 cuentas con mayor monto involucrado en alguna transacción.
 * Para el tipo de transacción con mayor cantidad de monto promedio, indicar cuales son las 5 cuentas con más transacciones.
