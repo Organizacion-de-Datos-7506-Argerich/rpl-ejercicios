@@ -134,6 +134,23 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(transferencias_tienen_cuenta_destino_y_origen(df), False)
 
+        df_data = [
+            (1, 'Transferencia', 4, 4, '03-01-2021', '00:00', 1),
+            (2, 'Transferencia', 6, 6, '03-01-2021', '00:00', 1),
+            (3, 'Transferencia', 9, 10, '03-01-2021', '00:00', 1),
+            (4, 'Transferencia', 4, 20, '03-01-2021', '00:00', 1),
+            (5, 'Prestamo', None, 30, '03-01-2021', '00:00', 1),
+            (6, 'Prestamo', None, 50, '03-01-2021', '00:00', 1),
+            (7, 'Varios', 999, 60, '03-01-2021', '00:00', 1)
+        ]
+
+        df = pd.DataFrame(df_data,
+                          columns=['nro_de_transacción', 'tipo_de_transacción',
+                                   'cuenta_origen', 'cuenta_destino',
+                                   'fecha', 'hora', 'monto'])
+
+        self.assertEqual(transferencias_tienen_cuenta_destino_y_origen(df), True)
+
     @timeout_decorator.timeout(5)
     def test_montos_positivos_simple(self):
         df_data = [

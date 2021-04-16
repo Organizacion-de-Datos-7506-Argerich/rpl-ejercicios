@@ -32,6 +32,7 @@ def transferencias_tienen_cuenta_destino_y_origen(df) -> bool:
     :param df: Dataframe
     :return: True si todas las transferencias tienen destino y origen
     """
+    df = df[df['tipo_de_transacción']=='Transferencia']
     return df['cuenta_origen'].isnull().sum() + \
            df['cuenta_destino'].isnull().sum() == 0
 
